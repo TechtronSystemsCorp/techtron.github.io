@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Techtron Systems Corp</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Techtron Systems Corp - Trusted IT solutions provider and technology distributor in the Philippines.">
+
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,13 +19,13 @@
     <div class="nav-container">
 
         <!-- LEFT -->
-<a href="#" class="nav-left">
-    <img src="images/logo.png" class="logo">
-    <div class="brand-text">
-        <h1>Techtron Systems Corp</h1>
-        <span>Your Technology Distribution Partner</span>
-    </div>
-</a>
+        <a href="#" class="nav-left">
+            <img src="images/logo.png" class="logo" alt="Techtron Logo">
+            <div class="brand-text">
+                <h1>Techtron Systems Corp.</h1>
+                <span>Your Technology Distribution Partner</span>
+            </div>
+        </a>
 
         <!-- RIGHT -->
         <nav class="nav-right">
@@ -42,7 +46,7 @@
     <div class="hero-content">
         <h1>Powering Businesses with Smart Technology</h1>
         <p>
-            A Trusted I.T Solutions Provider & Tech Distributor 
+            A Trusted IT Solutions Provider & Tech Distributor 
             Powering Philippine Businesses with Innovation and Reliability
         </p>
         <a href="#contact" class="btn">Get a Quote</a>
@@ -107,7 +111,7 @@
             <div class="timeline-icon">🏆</div>
             <div class="timeline-content">
                 <p>
-                    Recognized as a top I.T distributor through strong partnerships and service excellence.
+                    Recognized as a top IT distributor through strong partnerships and service excellence.
                 </p>
             </div>
         </div>
@@ -171,16 +175,16 @@
     <p class="center-text">We partner with globally recognized technology brands</p>
 
     <div class="brands">
-        <div class="brand" onclick="openModal('acer')"><img src="images/acer.png"></div>
-        <div class="brand" onclick="openModal('altos')"><img src="images/altos.png"></div>
-        <div class="brand" onclick="openModal('biwin')"><img src="images/biwin.jpg"></div>
-        <div class="brand" onclick="openModal('asus')"><img src="images/asus.png"></div>
-        <div class="brand" onclick="openModal('canon')"><img src="images/canon.png"></div>
-        <div class="brand" onclick="openModal('predator')"><img src="images/predator.png"></div>
-        <div class="brand" onclick="openModal('msi')"><img src="images/msi.png"></div>
-        <div class="brand" onclick="openModal('rapoo')"><img src="images/rapoo.png"></div>
-        <div class="brand" onclick="openModal('samsung')"><img src="images/samsung.jpg"></div>
-        <div class="brand" onclick="openModal('viewsonic')"><img src="images/viewsonic.png"></div>
+        <div class="brand" onclick="openModal('acer')"><img src="images/acer.png" alt="Acer"></div>
+        <div class="brand" onclick="openModal('altos')"><img src="images/altos.png" alt="Altos"></div>
+        <div class="brand" onclick="openModal('biwin')"><img src="images/biwin.jpg" alt="Biwin"></div>
+        <div class="brand" onclick="openModal('asus')"><img src="images/asus.png" alt="ASUS"></div>
+        <div class="brand" onclick="openModal('canon')"><img src="images/canon.png" alt="Canon"></div>
+        <div class="brand" onclick="openModal('predator')"><img src="images/predator.png" alt="Predator"></div>
+        <div class="brand" onclick="openModal('msi')"><img src="images/msi.png" alt="MSI"></div>
+        <div class="brand" onclick="openModal('rapoo')"><img src="images/rapoo.png" alt="Rapoo"></div>
+        <div class="brand" onclick="openModal('samsung')"><img src="images/samsung.jpg" alt="Samsung"></div>
+        <div class="brand" onclick="openModal('viewsonic')"><img src="images/viewsonic.png" alt="ViewSonic"></div>
     </div>
 </section>
 
@@ -201,7 +205,7 @@
 <section class="cta fade-up">
     <h2>Need IT Solutions for Your Business?</h2>
     <p>Let’s help you grow with the right technology.</p>
-<button class="btn" onclick="openContactForm()">Contact Us Today</button>
+    <button type="button" class="btn" onclick="openContactForm()">Contact Us Today</button>
 </section>
 
 <!-- =========================
@@ -212,7 +216,7 @@
     <div class="contact-box">
         <p><strong>Email:</strong> marketing@techtron.com.ph</p>
         <p><strong>Phone:</strong> (02) 8724 7303</p>
-        <p><strong>Address:</strong> San Juan City, Metro Manila, Philippines</p>
+        <p><strong>Address:</strong> 150 F. Blumentritt, San Juan City, 1500 Metro Manila</p>
     </div>
 </section>
 
@@ -224,24 +228,48 @@
 </footer>
 
 <!-- =========================
-     MODAL
+     BRAND MODAL
 ========================= -->
 <div id="brandModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
-        <img id="modalImg" src="">
+        <img id="modalImg" src="" alt="">
         <h2 id="modalTitle"></h2>
         <p id="modalDesc"></p>
     </div>
 </div>
 
 <!-- =========================
+     CONTACT MODAL
+========================= -->
+<div id="contactModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeContactForm()">&times;</span>
+
+        <h2>Contact Us</h2>
+
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Full Name" required>
+            <input type="email" id="email" placeholder="Email Address" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+
+            <div class="checkbox">
+                <input type="checkbox" id="consent" required>
+                <label for="consent">I agree to the processing of my data</label>
+            </div>
+
+            <button type="submit" class="btn">Submit</button>
+        </form>
+
+        <p id="formMsg"></p>
+    </div>
+</div>
+
+<!-- =========================
      SCRIPTS
 ========================= -->
-
 <script>
-/* SHRINK HEADER */
-
+/* HEADER SHRINK */
 window.addEventListener("scroll", function () {
     const header = document.getElementById("mainHeader");
     header.classList.toggle("shrink", window.scrollY > 50);
@@ -257,7 +285,7 @@ const observer = new IntersectionObserver(entries => {
 });
 document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
 
-/* MODAL */
+/* BRAND MODAL */
 function openModal(brand) {
     const modal = document.getElementById("brandModal");
     const img = document.getElementById("modalImg");
@@ -267,16 +295,16 @@ function openModal(brand) {
     modal.style.display = "block";
 
     const data = {
-        acer: { img: "images/acer-product.png", title: "Acer", desc: "Reliable laptops and projectors that deliver top-tier performance for work and play." },
-        altos: { img: "images/altos-product.png", title: "Altos", desc: "Enterprise-grade servers built for scalability, efficiency, and high-performance business needs." },
-        biwin: { img: "images/biwin-product.png", title: "Biwin", desc: "High-performance storage solutions designed for speed, reliability, and seamless data handling." },
-        asus: { img: "images/asus-product.png", title: "ASUS", desc: "Innovative computing devices for gamers, creators, and professionals with exceptional power and speed." },
-        canon: { img: "images/canon-product.png", title: "Canon", desc: "Superior imaging and printing technology that guarantees vibrant, high-quality results every time." },
-        predator: { img: "images/predator-product.png", title: "Predator", desc: "Elite gaming systems engineered for ultimate performance and immersive gaming experiences." },
-        msi: { img: "images/msi-product.png", title: "MSI", desc: "High-performance laptops and peripherals designed for professionals and gamers seeking power and reliability." },
-        rapoo: { img: "images/rapoo-product.png", title: "Rapoo", desc: "Wireless peripherals offering smooth connectivity and ergonomic comfort for enhanced productivity." },
-        samsung: { img: "images/samsung-product.png", title: "Samsung", desc: "Cutting-edge display innovations for vivid visuals and sleek, modern designs in every screen." },
-        viewsonic: { img: "images/viewsonic-product.png", title: "ViewSonic", desc: "Advanced display solutions with stunning clarity, perfect for gaming, work, and entertainment." }
+        acer: { img: "images/acer-product.png", title: "Acer", desc: "Reliable laptops and projectors that deliver top-tier performance." },
+        altos: { img: "images/altos-product.png", title: "Altos", desc: "Enterprise-grade servers built for scalability." },
+        biwin: { img: "images/biwin-product.png", title: "Biwin", desc: "High-performance storage solutions." },
+        asus: { img: "images/asus-product.png", title: "ASUS", desc: "Innovative computing devices." },
+        canon: { img: "images/canon-product.png", title: "Canon", desc: "Superior imaging and printing technology." },
+        predator: { img: "images/predator-product.png", title: "Predator", desc: "Elite gaming systems." },
+        msi: { img: "images/msi-product.png", title: "MSI", desc: "High-performance laptops and peripherals." },
+        rapoo: { img: "images/rapoo-product.png", title: "Rapoo", desc: "Wireless peripherals." },
+        samsung: { img: "images/samsung-product.png", title: "Samsung", desc: "Cutting-edge display innovations." },
+        viewsonic: { img: "images/viewsonic-product.png", title: "ViewSonic", desc: "Advanced display solutions." }
     };
 
     const item = data[brand];
@@ -291,42 +319,27 @@ function closeModal() {
     document.getElementById("brandModal").style.display = "none";
 }
 
-window.onclick = function(e) {
-    const modal = document.getElementById("brandModal");
-    if (e.target === modal) {
-        modal.style.display = "none";
-    }
-};
+/* CONTACT MODAL */
+function openContactForm() {
+    document.getElementById("contactModal").style.display = "block";
+}
+
+function closeContactForm() {
+    document.getElementById("contactModal").style.display = "none";
+}
+
+/* CLICK OUTSIDE CLOSE */
+window.addEventListener("click", function(e) {
+    const brandModal = document.getElementById("brandModal");
+    const contactModal = document.getElementById("contactModal");
+
+    if (e.target === brandModal) brandModal.style.display = "none";
+    if (e.target === contactModal) contactModal.style.display = "none";
+});
 </script>
-<!-- =========================
-     CONTACT FORM MODAL
-========================= -->
-<div id="contactModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeContactForm()">&times;</span>
-
-        <h2>Contact Us</h2>
-
-<form id="contactForm">
-    <input type="text" id="name" placeholder="Full Name" required>
-
-    <input type="email" id="email" placeholder="Email Address" required>
-
-    <textarea id="message" placeholder="Your Message" required></textarea>
-
-    <div class="checkbox">
-        <input type="checkbox" id="consent" required>
-        <label>I agree to the processing of my data</label>
-    </div>
-
-    <button type="submit" class="btn">Submit</button>
-</form>
-
-<p id="formMsg"></p>
-    </div>
-</div>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
