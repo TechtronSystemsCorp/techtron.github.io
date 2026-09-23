@@ -4,12 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Techtron Systems Corp</title>
-    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="icon" type="image/png" href="images/Favicon.png">
 
     <!-- SEO -->
     <meta name="description" content="Techtron Systems Corp - Trusted IT solutions provider and technology distributor in the Philippines.">
 
     <link rel="stylesheet" href="styles.css">
+<style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        .close {
+            border: 0;
+            background: transparent;
+            color: inherit;
+            padding: 0;
+            font-family: inherit;
+        }
+    </style>
 </head>
 <body>
 
@@ -20,11 +45,11 @@
     <div class="nav-container">
 
         <!-- LEFT -->
-        <a href="#" class="nav-left">
+        <a href="#home" class="nav-left" aria-label="Techtron Systems Corp. Home">
             <img src="images/logo.png" class="logo" alt="Techtron Logo">
             <div class="brand-text">
                 <h1>Techtron Systems Corp.</h1>
-                <span>Your Technology Distribution Partner</span>
+                <span>"Your Technology Distribution Partner Unmatched"</span>
             </div>
         </a>
 
@@ -43,7 +68,7 @@
 <!-- =========================
      HERO
 ========================= -->
-<section class="hero">
+<section id="home" class="hero">
     <div class="hero-content">
         <h1>Powering Businesses with Smart Technology</h1>
         <p>
@@ -184,12 +209,12 @@
         <div class="brand" onclick="openModal('predator')"><img src="images/predator.png" alt="Predator"></div>
         <div class="brand" onclick="openModal('msi')"><img src="images/msi.png" alt="MSI"></div>
         <div class="brand" onclick="openModal('rapoo')"><img src="images/rapoo.png" alt="Rapoo"></div>
-        <div class="brand" onclick="openModal('samsung')"><img src="images/samsung.jpg" alt="Samsung"></div>
+        <div class="brand" onclick="openModal('samsung')"><img src="images/samsung.png" alt="Samsung"></div>
         <div class="brand" onclick="openModal('viewsonic')"><img src="images/viewsonic.png" alt="ViewSonic"></div>
     </div>
 </section>
 
-<!-- =========================
+<!-- ========================= 
      MISSION
 ========================= -->
 <section id="mission" class="container alt-bg fade-up">
@@ -209,15 +234,37 @@
     <button type="button" class="btn" onclick="openContactForm()">Contact Us Today</button>
 </section>
 
+
+
 <!-- =========================
      CONTACT
 ========================= -->
 <section id="contact" class="container fade-up">
     <h2 class="section-title">Contact Us</h2>
-    <div class="contact-box">
-        <p><strong>Email:</strong> marketing@techtron.com.ph</p>
-        <p><strong>Phone:</strong> (02) 8724 7303</p>
-        <p><strong>Address:</strong> 150 F. Blumentritt, San Juan City, 1500 Metro Manila</p>
+    
+    <div class="contact-wrapper">
+        <!-- Map Embed Side -->
+        <div class="contact-map">
+            <!-- PASTE YOUR GOOGLE MAPS IFRAME HERE -->
+ <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d905.315742067509!2d121.02806054903367!3d14.600325546905102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b7d81bd5c1df%3A0xae14c02133c2ee21!2sTechtron%20Systems%20Corporation!5e1!3m2!1sen!2sph!4v1790149845838!5m2!1sen!2sph" 
+        width="100%" 
+        height="100%" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="strict-origin-when-cross-origin">
+    </iframe>
+        </div>
+
+        <!-- Contact Details Side -->
+        <div class="contact-details">
+            <h3>Get in Touch</h3>
+            <p><strong>Email:</strong> marketing@techtron.com.ph</p>
+            <p><strong>Phone:</strong> (02) 8724 7303</p>
+            <p><strong>Address:</strong> 150 F. Blumentritt, San Juan City, 1500 Metro Manila</p>
+            <button type="button" class="btn" onclick="openContactForm()">Message Us</button>
+        </div>
     </div>
 </section>
 
@@ -231,9 +278,9 @@
 <!-- =========================
      BRAND MODAL
 ========================= -->
-<div id="brandModal" class="modal">
+<div id="brandModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
+        <button type="button" class="close" onclick="closeModal()" aria-label="Close brand details">&times;</button>
         <img id="modalImg" src="" alt="">
         <h2 id="modalTitle"></h2>
         <p id="modalDesc"></p>
@@ -243,25 +290,39 @@
 <!-- =========================
      CONTACT MODAL
 ========================= -->
-<div id="contactModal" class="modal">
+<div id="contactModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
     <div class="modal-content">
-        <span class="close" onclick="closeContactForm()">&times;</span>
+        <button type="button" class="close" onclick="closeContactForm()" aria-label="Close contact form">&times;</button>
 
-        <h2>Contact Us</h2>
+        <h2 id="contactModalTitle">Contact Us</h2>
 
-        <form id="contactForm">
-            <input type="text" id="name" placeholder="Full Name" required>
-            <input type="email" id="email" placeholder="Email Address" required>
-            <textarea id="message" placeholder="Your Message" required></textarea>
+<form id="contactForm">
+    <label class="sr-only" for="name">Full Name</label>
+    <input type="text" id="name" name="name" placeholder="Full Name" autocomplete="name" required>
+    
+    <label class="sr-only" for="email">Email Address</label>
+    <input type="email" id="email" name="email" placeholder="Email Address" autocomplete="email" required>
 
-            <div class="checkbox">
-                <input type="checkbox" id="consent" required>
-                <label for="consent">I agree to the processing of my data</label>
-            </div>
+    <!-- NEW B2B FIELDS -->
+    <label class="sr-only" for="phone">Contact Number</label>
+    <input type="tel" id="phone" name="phone" placeholder="Contact Number" autocomplete="tel" required>
+    
+    <label class="sr-only" for="company">Company Name</label>
+    <input type="text" id="company" name="company" placeholder="Company Name" autocomplete="organization" required>
+    
+    <label class="sr-only" for="designation">Designation / Job Title</label>
+    <input type="text" id="designation" name="designation" placeholder="Designation / Job Title" required>
 
-            <button type="submit" class="btn">Submit</button>
-        </form>
+    <label class="sr-only" for="message">Your Message</label>
+    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
 
+    <div class="checkbox">
+        <input type="checkbox" id="consent" required>
+        <label for="consent">I agree to the processing of my data</label>
+    </div>
+
+    <button type="submit" class="btn">Submit</button>
+</form>
         <p id="formMsg"></p>
     </div>
 </div>
@@ -270,21 +331,57 @@
      SCRIPTS
 ========================= -->
 <script>
-/* HEADER SHRINK */
-window.addEventListener("scroll", function () {
-    const header = document.getElementById("mainHeader");
-    header.classList.toggle("shrink", window.scrollY > 50);
-});
+/* =========================================================
+   NAVBAR SCROLL EFFECT
+========================================================= */
 
-/* SCROLL ANIMATION */
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-        }
-    });
+const header = document.getElementById("mainHeader");
+let navTicking = false;
+
+function updateNavbar() {
+    const scrollY = window.scrollY;
+
+    // Shrink after 140px and stay shrunk until near the top.
+    if (!header.classList.contains("shrink") && scrollY > 140) {
+        header.classList.add("shrink");
+    }
+
+    if (header.classList.contains("shrink") && scrollY < 60) {
+        header.classList.remove("shrink");
+    }
+
+    navTicking = false;
+}
+
+window.addEventListener("scroll", function () {
+    if (!navTicking) {
+        window.requestAnimationFrame(updateNavbar);
+        navTicking = true;
+    }
+}, { passive: true });
+
+/* =========================================================
+   SCROLL ANIMATION
+========================================================= */
+
+const observer = new IntersectionObserver(
+    entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+                observer.unobserve(entry.target);
+            }
+        });
+    },
+    {
+        threshold: 0.12,
+        rootMargin: "0px 0px -40px 0px"
+    }
+);
+
+document.querySelectorAll(".fade-up").forEach(el => {
+    observer.observe(el);
 });
-document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
 
 /* BRAND MODAL */
 function openModal(brand) {
@@ -294,6 +391,7 @@ function openModal(brand) {
     const desc = document.getElementById("modalDesc");
 
     modal.style.display = "block";
+    document.body.classList.add("modal-open");
 
     const data = {
         acer: { img: "images/acer-product.png", title: "Acer", desc: "Reliable laptops and projectors that deliver top-tier performance." },
@@ -318,24 +416,42 @@ function openModal(brand) {
 
 function closeModal() {
     document.getElementById("brandModal").style.display = "none";
+    document.body.classList.remove("modal-open");
 }
 
 /* CONTACT MODAL */
 function openContactForm() {
     document.getElementById("contactModal").style.display = "block";
+    document.body.classList.add("modal-open");
 }
 
 function closeContactForm() {
     document.getElementById("contactModal").style.display = "none";
+    document.body.classList.remove("modal-open");
 }
 
-/* CLICK OUTSIDE CLOSE */
+/* =========================================================
+   MODAL CONTROLS
+========================================================= */
+
 window.addEventListener("click", function(e) {
     const brandModal = document.getElementById("brandModal");
     const contactModal = document.getElementById("contactModal");
 
-    if (e.target === brandModal) brandModal.style.display = "none";
-    if (e.target === contactModal) contactModal.style.display = "none";
+    if (e.target === brandModal) {
+        closeModal();
+    }
+
+    if (e.target === contactModal) {
+        closeContactForm();
+    }
+});
+
+window.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+        closeModal();
+        closeContactForm();
+    }
 });
 </script>
 
