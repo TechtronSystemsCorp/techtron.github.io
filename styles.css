@@ -240,30 +240,30 @@ body {
 }
 
 .slide {
-    flex: 0 0 100%; 
+    flex: 0 0 100%;
     min-height: 65vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     
-    /* Binago: Mula 'cover' ginawang 'contain' para lumabas ang buong picture */
+    /* Ginawang contain para makuha ang buong sukat ng larawan at hindi maputol */
     background-size: contain; 
     background-position: center;
     background-repeat: no-repeat;
     
-    /* Idinagdag: Para maging dark blue ang background sa likod kung sakaling may matirang space sa gilid */
+    /* Maglalagay ng dark blue background sa mga gilid kung sakaling may kulang na space */
     background-color: #0a0f2c; 
 }
 
-/* Plain background para sa Text Slide */
+/* Slide 1: Purong larawan */
 .slide-1 {
-    background: #0a0f2c; 
+    background-image: url('images/slide1.jpg');
 }
 
-/* Purong picture slides (Palitan ng tama mong filenames) */
+/* Slide 2: Plain background para sa Text */
 .slide-2 {
-    background-image: url('images/slide1.jpg');
+    background: #0a0f2c; 
 }
 
 .slide-3 {
