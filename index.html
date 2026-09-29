@@ -292,9 +292,9 @@ A trusted IT solutions provider and technology distributor delivering innovation
     <label class="sr-only" for="email">Email Address</label>
     <input type="email" id="email" name="email" placeholder="Email Address" autocomplete="email" required>
 
-    <!-- NEW B2B FIELDS -->
+    <!-- Binago: Numero lang ang tatanggapin -->
     <label class="sr-only" for="phone">Contact Number</label>
-    <input type="tel" id="phone" name="phone" placeholder="Contact Number" autocomplete="tel" required>
+    <input type="tel" id="phone" name="phone" placeholder="Contact Number" autocomplete="tel" pattern="[0-9]+" oninput="this.value = this.value.replace(/[^0-9]/g, '')" title="Please enter numbers only" required>
     
     <label class="sr-only" for="company">Company Name</label>
     <input type="text" id="company" name="company" placeholder="Company Name" autocomplete="organization" required>
@@ -302,8 +302,9 @@ A trusted IT solutions provider and technology distributor delivering innovation
     <label class="sr-only" for="designation">Designation / Job Title</label>
     <input type="text" id="designation" name="designation" placeholder="Designation / Job Title" required>
 
+    <!-- Binago: Hanggang 80 characters na lang -->
     <label class="sr-only" for="message">Your Message</label>
-    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+    <textarea id="message" name="message" placeholder="Your Message" maxlength="160" required></textarea>
 
     <div class="checkbox">
         <input type="checkbox" id="consent" required>
