@@ -106,7 +106,7 @@ body {
     display: block;
     width: auto; 
     height: 80px; 
-    transform: scale(5.0); 
+    transform: scale(3.0); 
     transform-origin: left center; 
     margin-right: 130px; /* Ibinaba mula 180px para mas lumapit ang text nang tama lang */
     object-fit: contain;
