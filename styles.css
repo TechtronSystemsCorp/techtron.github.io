@@ -105,14 +105,19 @@ body {
 .logo { 
     display: block;
     width: auto; 
-    height: 120px; /* Pinalaki mula 80px */
+    height: 80px; 
+    transform: scale(3.0); 
+    transform-origin: left center; 
+    margin-right: 130px; /* Ibinaba mula 180px para mas lumapit ang text nang tama lang */
     object-fit: contain;
     flex-shrink: 0;
-    transition: height 0.25s ease; 
+    transition: all 0.25s ease; 
 }
 
 #mainHeader.shrink .logo { 
-    height: 85px; /* Pinalaki mula 58px para hindi masyadong maliit pag-scroll */
+    height: 58px; 
+    transform: scale(2.2); 
+    margin-right: 85px; /* Ibinaba mula 120px para balanse pa rin kapag nag-scroll */
 }
 
 
@@ -418,44 +423,41 @@ body {
 }
 
 
-/* FORM */
-
+/* =========================================================
+   FINALIZED CONTACT FORM
+========================================================= */
 form {
     display: flex;
     flex-direction: column;
-
-    gap: 12px;
-
+    gap: 15px;
     margin-top: 20px;
+    text-align: left;
 }
 
-form input,
-form textarea {
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row input {
+    flex: 1; /* Pagpapantayin ang sukat ng magkatabing fields */
+}
+
+form input, form textarea {
     width: 100%;
-
-    padding: 12px;
-
+    padding: 12px 15px;
     border-radius: 8px;
-
     border: 1px solid #ccc;
-
     font-size: 0.95rem;
-
     font-family: inherit;
-
     outline: none;
-
-    transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
+    background: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-form input:focus,
-form textarea:focus {
-    border-color: #00aacc;
-
-    box-shadow:
-        0 0 0 3px rgba(0, 212, 255, 0.12);
+form input:focus, form textarea:focus {
+    border-color: #1a2a6c;
+    box-shadow: 0 0 0 3px rgba(26, 42, 108, 0.15);
 }
 
 form textarea {
@@ -463,12 +465,21 @@ form textarea {
     min-height: 120px;
 }
 
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #555;
+}
 
-/* CHECKBOX */
-
-/* Fix to prevent checkbox from stretching */
 .checkbox input[type="checkbox"] {
-    width: auto;
+    width: auto; /* Pinipigilang humaba ang checkbox */
+    cursor: pointer;
+}
+
+.checkbox label {
+    cursor: pointer;
 }
 
 /* Optional: Centers the checkbox and text together in the middle of the modal */
