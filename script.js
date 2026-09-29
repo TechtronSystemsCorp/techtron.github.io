@@ -52,3 +52,37 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+
+/* =========================================================
+   HERO MOTION SLIDER
+========================================================= */
+let currentSlide = 0;
+let slideTimer;
+const totalSlides = 6; /* Binago mula 2 papuntang 3 */
+
+window.changeSlide = function(index) {
+    currentSlide = index;
+    const track = document.getElementById("sliderTrack");
+    const dots = document.querySelectorAll(".dot");
+
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+    dots.forEach(dot => dot.classList.remove("active"));
+    if(dots[currentSlide]) {
+        dots[currentSlide].classList.add("active");
+    }
+
+    resetTimer();
+};
+
+function autoSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    window.changeSlide(currentSlide);
+}
+
+function resetTimer() {
+    clearInterval(slideTimer);
+    slideTimer = setInterval(autoSlide, 10000); 
+}
+
+resetTimer();
