@@ -29,14 +29,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-emailjs.send("service_sph8bk4", "template_42ey1g2", {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    phone: document.getElementById("phone").value,
-    company: document.getElementById("company").value,
-    designation: document.getElementById("designation").value,
-    message: document.getElementById("message").value
-})
+            // Inayos na part: Tinanggal ang sobrang '})' bago mag '.then()'
+            emailjs.send("service_sph8bk4", "template_42ey1g2", {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                phone: document.getElementById("phone").value,
+                company: document.getElementById("company").value,
+                designation: document.getElementById("designation").value,
+                message: document.getElementById("message").value
             })
             .then(() => {
                 msg.style.color = "green";
