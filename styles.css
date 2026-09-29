@@ -102,19 +102,17 @@ body {
 
 
 /* LOGO */
-
-/* LOGO */
 .logo { 
     display: block;
     width: auto; 
-    height: 120px; /* Increased from 80px */
+    height: 120px; /* Pinalaki mula 80px */
     object-fit: contain;
     flex-shrink: 0;
     transition: height 0.25s ease; 
 }
 
 #mainHeader.shrink .logo { 
-    height: 85px; /* Increased from 58px */
+    height: 85px; /* Pinalaki mula 58px para hindi masyadong maliit pag-scroll */
 }
 
 
@@ -590,92 +588,80 @@ footer {
 
 
 /* =========================================================
-   TIMELINE
+   MODERN ABOUT COMPANY GRID
 ========================================================= */
-
-.timeline {
-    position: relative;
-
-    max-width: 900px;
-
-    margin: auto;
-
-    padding-left: 40px;
-    padding-top: 30px;
+.corporate-about {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
-
-/* Vertical line */
-
-.timeline::before {
-    content: "";
-
-    position: absolute;
-
-    left: 20px;
-    top: 0;
-
-    width: 3px;
-    height: 100%;
-
-    background: #1a2a6c;
+.about-card {
+    background: #fff;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 4px solid #1a2a6c;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
-/* Timeline item */
-
-.timeline-item {
-    position: relative;
-
-    margin-bottom: 30px;
-
-    padding-left: 30px;
+.about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-
-/* Timeline icon */
-
-.timeline-icon {
-    position: absolute;
-
-    left: -2px;
-    top: 0;
-
-    width: 40px;
-    height: 40px;
-
-    border-radius: 50%;
-
-    background: #1a2a6c;
-
-    color: #fff;
-
+.about-icon {
+    background: #f4f6f9;
+    color: #1a2a6c;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    font-size: 18px;
-
-    border: 3px solid #fff;
-
-    box-shadow:
-        0 0 0 3px #1a2a6c;
+    font-size: 20px;
+    flex-shrink: 0;
 }
 
-
-/* Timeline content */
-
-.timeline-content {
-    background: #fff;
-
-    padding: 15px 20px;
-
-    border-radius: 10px;
-
-    box-shadow:
-        0 5px 15px rgba(0, 0, 0, 0.08);
+.about-text h3 {
+    font-size: 1.2rem;
+    color: #1a2a6c;
+    margin-bottom: 8px;
+    font-weight: 700;
 }
 
+.about-text p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Highlight card: Sasakupin ang buong ibaba ng grid */
+.highlight-card {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #1a2a6c, #0a0f2c);
+    border-left: 4px solid #00d4ff;
+}
+
+.highlight-card .about-icon {
+    background: rgba(255, 255, 255, 0.1);
+    color: #00d4ff;
+}
+
+.highlight-card .about-text h3 {
+    color: #fff;
+}
+
+.highlight-card .about-text p {
+    color: rgba(255, 255, 255, 0.85);
+}
 
 /* =========================================================
    MODAL
@@ -868,35 +854,19 @@ section {
 ========================================================= */
 
 @media (max-width: 600px) {
-
-    .brands {
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 15px;
+    .corporate-about {
+        grid-template-columns: 1fr;
     }
-.logo { 
-        height: 90px; /* Increased from 70px */
+    .about-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        border-left: none;
+        border-top: 4px solid #1a2a6c;
     }
-
-    #mainHeader.shrink .logo { 
-        height: 70px; /* Increased from 55px */
+    .highlight-card {
+        border-top: 4px solid #00d4ff;
     }
-    .service-box {
-        flex: 1 1 100%;
-    }
-
-    .nav-right {
-        gap: 8px 14px;
-    }
-
-    .nav-right a {
-        font-size: 0.85rem;
-    }
-
-    .section-title {
-        font-size: 1.7rem;
-    }
-
 }
 
 
