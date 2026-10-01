@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
 ========================================================= */
 let currentSlide = 0;
 let slideTimer;
-const totalSlides = 6; /* Binago mula 2 papuntang 3 */
+const totalSlides = 6; /* Binago naging 6 para sa slide 1 hanggang 6 */
 
 window.changeSlide = function(index) {
     currentSlide = index;
@@ -82,7 +82,9 @@ function autoSlide() {
 
 function resetTimer() {
     clearInterval(slideTimer);
-    slideTimer = setInterval(autoSlide, 10000); 
+    slideTimer = setInterval(autoSlide, 10000); // 10 segundo bawat slide
 }
 
-resetTimer();
+document.addEventListener("DOMContentLoaded", function() {
+    resetTimer();
+});
