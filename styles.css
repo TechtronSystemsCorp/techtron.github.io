@@ -223,7 +223,7 @@ body {
 ========================================================= */
 .hero {
     position: relative;
-    min-height: 65vh;
+    min-height: 70vh; /* Pinalaki nang kaunti para mas mahaba ang visual height ng image */
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -239,6 +239,9 @@ body {
     left: 0;
 }
 
+/* =========================================================
+   HERO SLIDER - FULL WIDTH FIT
+========================================================= */
 .slide {
     flex: 0 0 100%;
     min-height: 65vh;
@@ -247,16 +250,16 @@ body {
     justify-content: center;
     text-align: center;
     
-    /* Ginawang contain para makuha ang buong sukat ng larawan at hindi maputol */
-    background-size: contain; 
+    /* Ginagawang sakop ang buong width at height nang hindi napuputol */
+    background-size: 100% 100%; 
     background-position: center;
     background-repeat: no-repeat;
     
-    /* Maglalagay ng dark blue background sa mga gilid kung sakaling may kulang na space */
-    background-color: #0a0f2c; 
+/* Walang filter o gradient para lumabas ang original color ng image */
+    background-color: #0a0f2c;
 }
 
-/* Slide 1: Purong larawan */
+/* Slide 1: Original na kulay ng unang larawan */
 .slide-1 {
     background-image: url('images/slide1.jpg');
 }
@@ -266,22 +269,24 @@ body {
     background: #0a0f2c; 
 }
 
+/* Slide 3: Original na kulay ng ikalawang larawan */
 .slide-3 {
     background-image: url('images/slide2.jpg');
 }
 
-
+/* Slide 4, 5, 6: Original na kulay ng mga susunod na larawan */
 .slide-4 {
-    background-image: url('images/slide3.jpg');
-}
-
-.slide-5 {
     background-image: url('images/slide4.jpg');
 }
 
-.slide-6 {
+.slide-5 {
     background-image: url('images/slide5.jpg');
 }
+
+.slide-6 {
+    background-image: url('images/slide6.jpg');
+}
+
 .hero-content {
     color: white;
     padding: 0 20px;
@@ -299,17 +304,17 @@ body {
 ========================================================= */
 .slider-dots {
     position: absolute;
-    bottom: 30px;
+    bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 12px;
+    gap: 10px;
     z-index: 10;
 }
 
 .dot {
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
     background: rgba(255, 255, 255, 0.4);
     border-radius: 50%;
     cursor: pointer;
